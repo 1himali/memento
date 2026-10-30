@@ -1,0 +1,3 @@
+# Per-API-key limits at the gateway (see D-RATE).
+limits:
+  per_key: 100/min

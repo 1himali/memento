@@ -1,0 +1,32 @@
+[
+  {"file": "2026-08-05-first-meeting.md", "chat": [
+    ["Aman", "We need somewhere to keep the orders. I say SQLite. It is just one file."],
+    ["Riya", "Isn't MySQL the proper choice?"],
+    ["Aman", "It needs a separate server that we would pay for and look after. We are three students."],
+    ["Kabir", "I tested SQLite with 200 fake orders and it was fine. What about Firebase?"],
+    ["Riya", "Nobody here knows it."],
+    ["Aman", "Okay, SQLite. We expect under 300 orders a day. If it passes 1,000, or a second counter opens, we look again."]
+  ]},
+  {"file": "2026-08-19-payments.md", "chat": [
+    ["Riya", "How will students pay?"],
+    ["Kabir", "The finance office only approves hosted payment pages. We must never store card numbers or UPI PINs."],
+    ["Aman", "So we use Razorpay's hosted page. Their test mode worked in two days."],
+    ["Riya", "And building our own card form?"],
+    ["Kabir", "Then we would have to protect card data ourselves. No."]
+  ]},
+  {"file": "2026-09-02-issue-order-ready.md", "chat": [
+    ["Riya", "Students keep asking at the counter, is my order ready?"],
+    ["Aman", "Let's send them an SMS when it is ready."]
+  ]},
+  {"file": "2026-09-16-privacy-meeting.md", "chat": [
+    ["Kabir", "Students asked us not to share their phone numbers with the staff. Staff must never see them on their screen."],
+    ["Aman", "Then SMS is awkward. Each alert costs money, about Rs 80 a day, and needs a number."],
+    ["Riya", "In-app alerts are free. I tried them with 20 students and they worked."],
+    ["Aman", "Done. In-app instead of SMS. We will reconsider if the college pays for an SMS plan."]
+  ]},
+  {"file": "2026-10-01-login-decision.md", "chat": [
+    ["Kabir", "Last term an outsider ordered food using a student's account."],
+    ["Riya", "So only college email addresses can create accounts. Students sign in with the college email and a one-time code."],
+    ["Aman", "And no open sign-up with any email. Strangers could place orders on student accounts."]
+  ]}
+]

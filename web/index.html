@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Memento: the system that remembers why</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <h1>Memento</h1>
+      <p>the system that remembers why</p>
+    </div>
+    <label class="proj">Example project
+      <select id="project"></select>
+    </label>
+  </header>
+
+  <main>
+    <section id="tab-graph">
+      <h2>Collect the team's decisions live</h2>
+      <p class="lede">Play the team's meetings or add your own notes, and watch the decision graph build itself. Click any dot to see why it exists.</p>
+      <div class="graph-wrap">
+        <div class="panel canvas-panel" id="canvasPanel">
+          <canvas id="cv" aria-label="Decision graph"></canvas>
+          <div class="empty-hint" id="emptyHint">
+            <b>The project memory is empty.</b>
+            <span>Play the team's story on the right and watch it fill in.</span>
+          </div>
+          <div class="tools">
+            <label><input type="checkbox" id="showOld" checked> show replaced decisions</label>
+            <button class="chip" id="clearHl" hidden>clear highlight</button>
+          </div>
+          <div class="legend" aria-hidden="true">
+            <span><i class="sw decision"></i>Decision</span>
+            <span><i class="sw constraint"></i>Rule (constraint)</span>
+            <span><i class="sw alternative"></i>Rejected option</span>
+            <span><i class="sw evidence"></i>Evidence</span>
+            <span><i class="sw assumption"></i>Assumption</span>
+            <span><i class="sw code"></i>Code file</span>
+          </div>
+          <div class="tip" id="tip"></div>
+        </div>
+
+        <aside class="panel side" aria-live="polite">
+          <div class="seg" role="tablist" aria-label="Side panel">
+            <button role="tab" id="segCapture" aria-selected="true">Capture</button>
+            <button role="tab" id="segInspect" aria-selected="false">Inspect</button>
+          </div>
+
+          <div id="paneCapture" class="pane">
+            <p class="about" id="about"></p>
+            <div class="row2">
+              <button class="btn ghost" id="emptyBtn">Start with an empty project</button>
+              <button class="btn ghost" id="fullBtn">Load finished project</button>
+            </div>
+
+            <h3 class="h">The team's story</h3>
+            <div class="story-head">
+              <span id="storyCount">Meeting 0 of 0</span>
+              <span><button class="btn" id="playBtn">▶ Play all</button> <button class="btn ghost" id="nextBtn">Next meeting</button></span>
+            </div>
+            <div class="meeting" id="meeting"></div>
+
+            <h3 class="h">Capture your own</h3>
+            <p class="small">Pick what kind of thing was said, type it, then save the note. The graph updates instantly.</p>
+            <div class="kinds" id="kinds"></div>
+            <div class="add-row"><input type="text" id="itemText" placeholder="What did the team say?" aria-label="What did the team say"><button class="btn" id="addItem">Add</button></div>
+            <div class="staged" id="staged"></div>
+            <div class="add-row"><input type="text" id="itemFiles" placeholder="Code files it touches (optional, comma separated)" aria-label="Files"></div>
+            <p><button class="btn" id="saveNote" disabled>Save note to the graph</button></p>
+
+            <details class="paste">
+              <summary>Or paste a whole note</summary>
+              <textarea id="noteText" rows="7" spellcheck="false"></textarea>
+              <p><button class="btn ghost" id="ingestBtn">Add pasted note</button></p>
+            </details>
+            <div id="report"></div>
+          </div>
+
+          <div id="paneInspect" class="pane" hidden>
+            <div id="inspector"><p class="empty">Click any node in the graph to see why it exists, what supports it and what it limits.</p></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
